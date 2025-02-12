@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SafarS- Home</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-gray-100 text-gray-800">
+
+    <header class="h-[10vh] w-screen bg-[#005f73] text-[#ffffff] p-6 flex justify-between items-center fixed">
+        <h1 class="text-3xl font-bold custom">SafarSathi</h1>
+        <nav>
+            <ul class="flex items-center text-xl space-x-6">
+                <li><a href="index.html" class="custom">Home</a></li>
+                <li><a href="destinations.html" class="custom">Destinations</a></li>
+                <li><a href="contact.html" class="custom">Contact</a></li>
+                <li><a href="#" class="custom">Become Supplier</a></li>
+                <li><a href="login.html" class="px-3 py-2 bg-gray-500 text-white rounded-lg text-lg" >Log In</a></li>
+
+
+               
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="bg-slider" class="bg-cover h-[100vh] w-screen bg-center text-[#ffffff] flex flex-col items-center justify-center">
+            <div class="text-center mb-8">
+                <h2 class="text-6xl font-semibold text-[#9cecfb] font-[gilroy]">Discover Your Next Place</h2>
+                <p class="mt-4 font-medium text-3xl text-[pink] font-[gilroy]">Explore beautiful destinations around India.</p>
+            </div>
+            <div class="w-full max-w-md px-4">
+                <input type="text" id="search" class="w-full p-4 border text-black border-[#005f73] rounded-lg focus:outline-none focus:border-[#f4a261] transition-colors" placeholder="Search destinations...">
+            </div>
+            <div class="px-6 py-2 bg-[#005f73] mt-5 rounded-full border-2 border-transparent transition-all duration-300 hover:bg-[#004d63] hover:scale-105 hover:border-[#f4a261]">
+                <button class="text-white font-semibold">Book now</button>
+            </div>
+        </section>
+        
+        <section class="mt-12 px-4">
+            <div id="destinations-container" class="grid grid-cols-1 md:grid-cols-3 gap-8"></div>
+        </section>
+
+        <div class="w-full flex justify-center my-8">
+            <div class="w-full max-w-4xl h-[40vh]">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d234700.34595964893!2d77.2410776846287!3d23.199639467107254!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x397c428f8fd68fbd%3A0x2155716d572d4f8!2sBhopal%2C%20Madhya%20Pradesh!5e0!3m2!1sen!2sin!4v1725501749172!5m2!1sen!2sin" 
+                    class="w-full h-full border-0 rounded-lg shadow-lg" 
+                    allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+        
+    </main>
+
+    <footer class="bg-gray-800 text-white text-center py-4 mt-12 w-full h-[10vh]">
+        <p>ExploreWorld. All rights reserved.</p>
+        <!-- cursor  -->
+        <div id="cursor-circle" class="cursor-circle"></div>   
+    </footer>
+
+    
+    <script>
+        const images = [
+            'https://images.unsplash.com/photo-1708961370545-5f00499a1808?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+            'https://images.unsplash.com/photo-1627938823193-fd13c1c867dd?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+            'https://plus.unsplash.com/premium_photo-1661963646501-7c2818380948?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+            'https://images.pexels.com/photos/2516418/pexels-photo-2516418.jpeg',
+        ];
+
+        let currentImage = 0;
+        const bgSlider = document.getElementById('bg-slider');
+        
+        function changeBackgroundImage() {
+            currentImage = (currentImage + 1) % images.length; 
+            bgSlider.style.backgroundImage = `url(${images[currentImage]})`;
+        }
+
+        setInterval(changeBackgroundImage, 5000);
+    </script>
+
+    <!--  Cards -->
+    <script>
+        const destinationsData = [
+            {
+                "name": "BHOPAL",
+                "image": "https://i.ytimg.com/vi/n-DbqB4iNrU/maxresdefault.jpg",
+                "description": "The city of light and love."
+            },
+            {
+                "name": "PATNA",
+                "image": "https://i.ytimg.com/vi/yGp_o04GYF8/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLAilUPuFk1RIpjA0y-MFJefEO2M6A",
+                "description": "Patna is the largest town and headquarters of Patna district"
+            },
+            {
+                "name": "SANJHAULI",
+                "image": "https://media.istockphoto.com/id/827065008/photo/holy-town-varanasi-and-the-river-ganges.jpg?s=612x612&w=0&k=20&c=WHGBF2zwPkVMpAma832RbHrov6VwKIMXuDR3N2WmfGg=",
+                "description": "Patna is the largest town and headquarters of Patna district"
+            },
+            {
+                "name": "GAYA",
+                "image": "https://images.pexels.com/photos/338515/pexels-photo-338515.jpeg",
+                "description": "Patna is the largest town and headquarters of Patna district"
+            },
+            {
+                "name": "MADHUBANI",
+                "image": "https://t4.ftcdn.net/jpg/04/08/25/05/360_F_408250543_MVaEVGeWxb4FiFy7mEGKj8nfYkwoAZON.jpg",
+                "description": "Patna is the largest town and headquarters of Patna district"
+            },
+            {
+                "name": "CHHAPRA",
+                "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTyR-hR1wXtO3JTy50P18OkewGxSMCXn4bDihIOt_VqA9HaPzS9s_fIS2kYUZBM2wkxNd4&usqp=CAU",
+                "description": "Patna is the largest town and headquarters of Patna district"
+            }
+        ];
+
+        function createDestinationCards(destinations) {
+            const container = document.getElementById('destinations-container');
+            container.innerHTML = '';
+
+            destinations.forEach(destination => {
+                const destinationDiv = document.createElement('div');
+                destinationDiv.className = 'destination-card p-4 bg-white rounded shadow-lg cursor-pointer';
+                
+                
+                if (destination.name === "BHOPAL") {
+                    destinationDiv.addEventListener('click', () => {
+                        window.location.href = "bhopal.html"; 
+                    });
+                }
+                
+                // Using template literals
+                destinationDiv.innerHTML = `
+                    <img src="${destination.image}" alt="${destination.name}" class="w-full h-48 object-cover rounded-t">
+                    <h3 class="text-2xl font-bold mt-4">${destination.name}</h3>
+                    <p class="text-lg mt-2">${destination.description}</p>
+                `;
+                
+                container.appendChild(destinationDiv);
+            });
+        }
+
+        createDestinationCards(destinationsData);
+    </script>
+
+    <!--Cursor -->
+    <script>
+        const cursorCircle = document.getElementById('cursor-circle');
+
+        document.addEventListener('mousemove', (e) => {
+            cursorCircle.style.left = `${e.pageX}px`;
+            cursorCircle.style.top = `${e.pageY}px`;
+        });
+    </script>
+</body>
+</html>
